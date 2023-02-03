@@ -1,11 +1,15 @@
 import Image from "next/image";
+import {prisma} from '../prisma/index';
 
 async function getProjects() {
-  const res = await fetch(`${process.env.NOW_URL}/api/getProjects`);
-  if (!res.ok) {
-    console.log("Cannot fetch projects");
-  }
-  return res.json();
+  try {
+    const data = await prisma.projects.findMany()
+    return data
+   }
+   catch (error) {
+    console.log(error)
+    return null
+   }
 }
 
 export default async function Home() {
@@ -16,7 +20,8 @@ export default async function Home() {
     github_link: string;
     demo_link: string;
     image_link: string;
-  }[] = await getProjects();
+  }[] | null = await getProjects();
+  if (data === null) return <div><p>Cannot fetch Projects</p></div>
   return (
     <main>
       <div>
