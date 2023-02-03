@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 async function getProjects() {
-  const res = await fetch(`${process.env.BASE_URL}/api/getProjects`);
+  const res = await fetch(`${process.env.NOW_URL}/api/getProjects`);
   if (!res.ok) {
     console.log("Cannot fetch projects");
   }
