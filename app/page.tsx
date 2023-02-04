@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <div className="flex justify-center items-center w-screen h-screen">
-        <div className="group border-solid border-blue-400 border-2 p-4 text-4xl xl:text-7xl rounded-xl hover:border-blue-700 hover:shadow-lg hover:-translate-y-0.5">
+        <div className="group border-solid border-blue-400 border-2 p-4 text-4xl xl:text-7xl rounded-xl hover:border-blue-700 hover:shadow-md hover:shadow-blue-500 hover:-translate-y-0.5">
           <p>Hi,</p>
           <p>
             My Name is <span className="group-hover:text-blue-700">Joyel</span>
