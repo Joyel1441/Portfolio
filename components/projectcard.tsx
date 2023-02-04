@@ -19,7 +19,7 @@ const ProjectCard = (props: Props) => {
   const { demo_link } = props;
   const { image_link } = props;
   return (
-    <div className="">
+    <div className="text-xl">
       <div className="grid grid-flow-row gap-2">
         <div className="w-full block relative h-72">
         <Image src={image_link} alt="project image" fill={true} className="rounded-md"/>
