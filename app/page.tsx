@@ -1,38 +1,14 @@
-import Image from "next/image";
-import {prisma} from '../prisma/index';
+import Link from "next/link";
 
-async function getProjects() {
-  try {
-    const data = await prisma.projects.findMany()
-    return data
-   }
-   catch (error) {
-    console.log(error)
-    return null
-   }
-}
-
-export default async function Home() {
-  const data: {
-    id: number;
-    project_title: string;
-    project_description: string;
-    github_link: string;
-    demo_link: string;
-    image_link: string;
-  }[] | null = await getProjects();
-  if (data === null) return <div><p>Cannot fetch Projects</p></div>
+export default function Home() {
+  
   return (
     <main>
-      <div>
-        {data.map((project) => (
-          <div key={project.id}>
-            <p>{project.project_title}</p>
-            <p>{project.project_description}</p>
-            <Image 
-            src={project.image_link} alt="project image" width={500} height={500}/>
-          </div>
-        ))}
+      <div className="flex justify-center items-center w-screen h-screen">
+        <div className="border-solid border-blue-400 border-2 p-4 text-4xl xl:text-7xl rounded-xl hover:border-blue-700">
+         <p>Hi,</p>
+         <p>My Name is <span className="hover:text-blue-700">Joyel</span></p>
+         </div>
       </div>
     </main>
   );
