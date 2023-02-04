@@ -1,3 +1,4 @@
+import ProjectCard from "@/components/projectcard";
 import Image from "next/image";
 import {prisma} from '../../prisma/index';
 
@@ -25,13 +26,10 @@ const Projects = async () => {
     
   if (data === null) return <div><p>Cannot fetch Projects</p></div>
   return (
-    <div>
+    <div className="flex w-full h-full justify-center items-center mt-4">
     {data.map((project) => (
         <div key={project.id}>
-          <p>{project.project_title}</p>
-          <p>{project.project_description}</p>
-          <Image 
-          src={project.image_link} alt="project image" width={500} height={500}/>
+          <ProjectCard id={project.id} project_title={project.project_title} project_description={project.project_description} github_link={project.github_link} demo_link={project.demo_link} image_link={project.image_link}/>
         </div>
       ))}
      </div>
